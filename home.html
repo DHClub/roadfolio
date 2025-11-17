@@ -724,6 +724,18 @@
             el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
             observer.observe(el);
         });
+        function changeFavicon(src) {
+    let link = document.querySelector("link[rel~='icon']");
+    if (!link) {
+        link = document.createElement('link');
+        link.rel = 'icon';
+        document.head.appendChild(link);
+    }
+    link.href = src;
+}
+
+// Utilisation de l'URL directe et cache-buster
+changeFavicon("https://imgur.com/8ubN7Mv.png?v=" + new Date().getTime());
     </script>
 </body>
 </html>
